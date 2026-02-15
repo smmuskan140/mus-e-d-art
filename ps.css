@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  background: #f0e7dd; /* dark brown wall */
+  font-family: sans-serif;
+}
+h1{
+  text-align: center;
+  color: #4e3e0a; /* gold text */
+  margin-top: 30px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Outer scroll container */
+.gallery-container {
+  overflow-x: auto;
+  padding: 40px 20px;
+}
+
+/* Inner flex row */
+.gallery {
+  display: flex;
+  gap: 40px;
+}
+
+/* Frame styling */
+.frame {
+  flex: 0 0 auto; /* prevents shrinking */
+  padding: 15px;
+  background: linear-gradient(145deg, #c9a227, #a67c00);
+  border: 6px solid #6c3314;
+  box-shadow:
+    0 15px 30px rgba(0,0,0,0.6),
+    inset 0 0 10px rgba(0,0,0,0.5);
+  transition: transform 0.4s ease;
+}
+
+/* Painting */
+.frame img {
+  width: 250px;  /* smaller size */
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  border: 4px solid #fff;
+}
+
+/* Hover effect */
+.frame:hover {
+  transform: scale(1.05);
+}
+.gallery-container::-webkit-scrollbar {
+  display: none;
+}
+
+.details {
+  text-align: center;
+  margin-top: 10px;
+  color: #4e3e0a; /* gold text */
+  background: #ffffff;
+  border: #6c3314 solid 3px;
+  border-radius: 10px;
+  padding: 10px;
+  text-decoration: none;
+}
+.card {
+  display: flex;
+  flex-direction: column;   /* STACKS frame + text vertically */
+  align-items: center;
+}
+

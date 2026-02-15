@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painting Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background:#f1d0ad;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding-top: 100px;
+        }
+        #title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            color:#4d0606;
+        }
+        .left{
+             display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #image {
+            max-width: 100%;
+            height: 600px;
+            width: 600px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+             background: linear-gradient(145deg, #c9a227, #a67c00);
+  border: 6px solid #ffffff;
+   box-shadow:
+    0 20px 40px rgba(0,0,0,0.6),
+    inset 0 0 15px rgba(0,0,0,0.4),
+    inset 0 0 5px #fff8dc;
+  transition: transform 0.4s ease;
+        }
+        #price {
+            font-size: 18px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor:pointer;
+        }
+        .detailofpainting {
+            padding:40px;
+            background-color: #ffffff;
+            border-radius: 25px;
+            width: 450px;          
+        }
+        .detailbox{
+            display: flex;
+            align-items: flex-start;
+    justify-content: center;
+    gap: 60px;
+    padding: 50px;
+        }
+        header{
+            text-align: center;
+            font-size: 28px;
+            color:#3f0707;
+            position: fixed;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0px;
+    padding: 15px 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+        }
+        </style>
+</head>
+<body>
+    
+    <header>
+        <i>this is the details page ,and this is the header</i>
+    </header>
+
+<div class="detailbox">
+
+    <div class="left">
+      <img id="image" alt="Painting Image">
+    </div>
+
+    <div class="detailofpainting">
+      <h2 id="title"></h2>
+      <p id="description"></p>
+      <h3 id="price"></h3>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p style="color: red;">very special painting 
+        close to my heart.</p>
+      <p>
+        <b>Discription:</b>This painting is a masterpiece that captures the essence of beauty and emotion. The artist's skillful brushwork and vibrant colors bring the subject to life, evoking a sense of wonder and admiration. Each stroke tells a story, inviting viewers to immerse themselves in the world of art and imagination. Whether displayed in a gallery or a private collection, this painting is sure to be a cherished treasure for generations to come.
+      </p>
+      <button class="btn">Buy Now</button>
+    </div>
+
+  </div>
+
+
+  <script>
+     const paintings = {
+    1: {
+      title: "Blue Painting",
+      image: "https://www.artzolo.com/cdn/shop/files/blue-magic-artzolo-com.jpg?v=1715703213",
+      price: "$10,000",
+      description: "A calming abstract blue artwork."
+    },
+    2: {
+      title: "Pearl Girl",
+      image: "https://images.prismic.io/barnebys/5fd297d7-8fb9-4f56-ba82-a14c88263245_d38.jpg?w=900",
+      price: "$23,000",
+      description: "A timeless classic portrait."
+    },
+    3: {
+      title: "The Swing",
+      image: "https://www.portraitflip.com/wp-content/uploads/2023/10/43.-The-Swing.jpg",
+      price: "$78,000",
+      description: "Romantic 18th century masterpiece."
+    },
+    4:{
+      title: "Indian Girl",
+      image: "https://rukminim2.flixcart.com/image/480/640/l2tcfbk0/poster/4/i/v/small-poster-indian-gorgeious-girl-painting-sla523-wall-poster-original-imaeu57cbmfxhm8g.jpeg?q=90",
+      price: "$58,000",
+      description: "A vibrant portrayal of an Indian girl."
+    },
+    // Add more paintings as needed
+    5:{
+      title: "The Scream",
+      image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyGnxijYXzG7Vu7XWuTVw0pHomT0vByXpd2CGK9P8iZaGlAIDOM8OVaPwHj6mJnIoPFbNkYfbe-yWqcaSeBd4W2PgQRuLlGOJ8YVB44C6potWM-WRAGa3BWDifui1wSMBLPQ33z18UdZQ/s1600/Kuyadex.info+-+The+Scream+-+Edvard+Munch.jpg",
+      price: "$63,000",
+      description: "An iconic expressionist masterpiece."
+    },
+    6:{
+      title: "Aesthetic Painting",
+      image: "https://ikiru.in/cdn/shop/files/buy-wall-paintings-and-prints-blitz-beautiful-canvas-wall-art-for-home-and-office-decor-or-decorative-multicolor-painting-by-home4u-on-ikiru-online-store-1.jpg?v=1739208915",
+      price: "$77,000",
+      description: "A modern abstract composition."
+    }
+  };
+  
+const urlParams = new URLSearchParams(window.location.search);
+const id = parseInt(urlParams.get("id"));
+
+if (!isNaN(id) && paintings[id]) {
+  const painting = paintings[id];
+
+  document.getElementById("title").innerText = painting.title;
+  document.getElementById("image").src = painting.image;
+  document.getElementById("price").innerText = painting.price;
+  document.getElementById("description").innerText = painting.description;
+
+} else {
+  document.body.innerHTML = "<h2>Painting not found</h2>";
+}
+
+  </script>
+</body>
+</html>
