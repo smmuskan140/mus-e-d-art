@@ -2,6 +2,8 @@ body {
   margin: 0;
   background: #f0e7dd; /* dark brown wall */
   font-family: sans-serif;
+  align-items: center;
+  justify-content: center;
 }
 h1{
   text-align: center;
@@ -66,4 +68,66 @@ h1{
   flex-direction: column;   /* STACKS frame + text vertically */
   align-items: center;
 }
+    .door-scene {
+      position: relative;
+  width: 90%;
+  max-width: 1100px;
+  height: 800px;
+  margin:30px auto;
+}
 
+.door.left-door{
+  background-image: url("https://i.pinimg.com/736x/ae/67/0c/ae670c63b9c138ba50d023d16841e1cd.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.door.right-door{
+  background-image: url("https://i.pinimg.com/736x/ae/67/0c/ae670c63b9c138ba50d023d16841e1cd.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.door-scene img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .door {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(to right, #2b2b2b, #000);
+      transition: transform 1.5s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      cursor: pointer;
+    }
+    
+    /* Hover effect */
+    .door-scene:hover .left-door {
+      transform: rotateY(-110deg);
+    }
+
+    .door-scene:hover .right-door {
+      transform: rotateY(110deg);
+    }
+     /* Left Door */
+    .left-door {
+      left: 0;
+      transform-origin: left;
+      border-right: 2px solid #444;
+    }
+
+    /* Right Door */
+    .right-door {
+      right: 0;
+      transform-origin: right;
+      border-left: 2px solid #444;
+    }
